@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Pelanggan, Menu, Pemesanan, Transaksi
+from .models import Pelanggan, Menu, Pemesanan
 
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,15 +12,8 @@ class PelangganSerializer(serializers.ModelSerializer):
         fields = ['id', 'nama_pelanggan', 'alamat', 'nomor_telepon']
 
 class PemesananSerializer(serializers.ModelSerializer):
-    pelanggan = PelangganSerializer()
-    menu = MenuSerializer(many=True)
-
+    pelanggan = serializers.PrimaryKeyRelatedField(queryset=Pelanggan.objects.all())
+    menu = serializers.PrimaryKeyRelatedField(queryset=Menu.objects.all(), many=True)
     class Meta:
         model = Pemesanan
-        fields = ['id', 'pelanggan', 'menu', 'tanggal_pemesanan', 'status']
-
-class TransaksiSerializer(serializers.ModelSerializer):
-    pemesanan = PemesananSerializer()
-    class Meta:
-        model = Transaksi
-        fields = ['id', 'pemesanan', 'total_harga', 'metode_pembayaran', 'tanggal_transaksi']
+        fields = ['id', 'pelanggan', 'menu', 'tanggal_pemesanan', 'status', "total_harga"]

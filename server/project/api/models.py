@@ -1,4 +1,3 @@
-# models.py
 from django.db import models
 
 # Model Pelanggan
@@ -35,21 +34,7 @@ class Pemesanan(models.Model):
     menu = models.ManyToManyField(Menu)  # Relasi Many-to-Many dengan Menu
     tanggal_pemesanan = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES)
+    total_harga = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"Pemesanan {self.id} oleh {self.pelanggan.nama_pelanggan}"
-
-# Model Transaksi
-class Transaksi(models.Model):
-    METODE_PEMBAYARAN_CHOICES = [
-        ('tunai', 'Tunai'),
-        ('kartu', 'Kartu'),
-        ('gopay', 'GoPay'),
-    ]
-    pemesanan = models.OneToOneField(Pemesanan, on_delete=models.CASCADE)
-    total_harga = models.DecimalField(max_digits=10, decimal_places=2)
-    metode_pembayaran = models.CharField(max_length=50, choices=METODE_PEMBAYARAN_CHOICES)
-    tanggal_transaksi = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Transaksi {self.id} untuk Pemesanan {self.pemesanan.id}"

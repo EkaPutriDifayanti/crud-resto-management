@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Pelanggan, Menu, Pemesanan, Transaksi
-from .serializers import PelangganSerializer, MenuSerializer, PemesananSerializer, TransaksiSerializer
+from .models import Pelanggan, Menu, Pemesanan
+from .serializers import PelangganSerializer, MenuSerializer, PemesananSerializer
 
 class PelangganViewSet(viewsets.ModelViewSet):
     queryset = Pelanggan.objects.all()
@@ -13,7 +13,6 @@ class MenuViewSet(viewsets.ModelViewSet):
 class PemesananViewSet(viewsets.ModelViewSet):
     queryset = Pemesanan.objects.all()
     serializer_class = PemesananSerializer
-
-class TransaksiViewSet(viewsets.ModelViewSet):
-    queryset = Transaksi.objects.all()
-    serializer_class = TransaksiSerializer
+    
+    def perform_create(self, serializer):
+        serializer.save()

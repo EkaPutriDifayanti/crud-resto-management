@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pelanggan, Menu, Pemesanan, Transaksi
+from .models import Pelanggan, Menu, Pemesanan
 
 # Register Pelanggan Model
 class PelangganAdmin(admin.ModelAdmin):
@@ -21,14 +21,6 @@ class PemesananAdmin(admin.ModelAdmin):
     list_display = ('pelanggan', 'status', 'tanggal_pemesanan')
     search_fields = ['pelanggan__nama_pelanggan']
     list_filter = ('status',)
-    filter_horizontal = ('menu',)  # Untuk mempermudah pemilihan banyak menu
+    filter_horizontal = ('menu',)
 
 admin.site.register(Pemesanan, PemesananAdmin)
-
-# Register Transaksi Model
-class TransaksiAdmin(admin.ModelAdmin):
-    list_display = ('pemesanan', 'total_harga', 'metode_pembayaran', 'tanggal_transaksi')
-    search_fields = ['pemesanan__id', 'metode_pembayaran']
-    list_filter = ('metode_pembayaran',)
-
-admin.site.register(Transaksi, TransaksiAdmin)
