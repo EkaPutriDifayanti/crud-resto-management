@@ -3,17 +3,17 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 
 const Navbar = () => {
   return (
-    <AppBar position="absolute" sx={{ padding:1, boxShadow: 0}}>
-      <Container maxWidth = "xl">
+    <AppBar position="static" sx={{ padding:1 }}>
+      <Container maxWidth="xl">
         <Toolbar>
-          <FastfoodIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <FastfoodIcon sx={{ display: { xs: "none", md: "flex" }, mr: 2 }} />
           <Typography
-            variant="h5"
+            variant="h6"
             sx={{
               fontWeight: 700,
             }}
           >
-            Restaurant Management
+            MANAJEMEN RESTORAN
           </Typography>
         </Toolbar>
       </Container>
