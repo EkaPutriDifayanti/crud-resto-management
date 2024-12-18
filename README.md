@@ -20,11 +20,12 @@ Ensure the following are installed on your system before proceeding:
 ### Client
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/EkaPutriDifayanti/crud-resto-management
    ```
 2. Navigate to the client directory:
    ```bash
    cd client
+   cd app
    ```
 3. Install dependencies:
    ```bash
@@ -40,6 +41,7 @@ Ensure the following are installed on your system before proceeding:
 1. Navigate to the server directory:
    ```bash
    cd server
+   cd project
    ```
 2. Install required Python packages:
    ```bash
