@@ -1,4 +1,4 @@
-# Restaurant Management Project Setup Instruction👩‍💻
+# Restaurant Management Project Setup Instruction 👩‍💻
 
 This guide will walk you through the steps to set up and run the project, including both the client and server sides.
 
@@ -64,7 +64,5 @@ Ensure the following are installed on your system before proceeding:
 ## Additional Notes
 - Ensure the client and server are running concurrently for the application to function correctly.
 - If you encounter any issues during setup, check for missing dependencies or configuration mismatches.
-- Update the `<repository-url>` placeholder in the clone command with the actual repository link.
 
 Give it a try and Happy coding 🌠
-
